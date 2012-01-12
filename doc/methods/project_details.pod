@@ -1,0 +1,62 @@
+=head1 NAME
+
+project_details
+
+=head1 DESCRIPTION
+
+Returns detailed information for a specified project.
+
+=head2 Parameters
+
+=over 4
+
+=item metaproj
+
+Required. Metaproject that contains the requested project. Example:
+C<metaproj=perl5>.
+
+=item project
+
+Required. Project name. Example: C<project=ack>.
+
+=back
+
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/project_details?metaproj=perl5;project=ack
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : {
+        "metaproj" : "perl5",
+        "project" : "ack",
+        "cell" : "d.lvt.nyc.amrs.example.com",
+        "spaceused" : "3866514",
+        "filecount" : "232",
+        "dircount" : "216",
+        "spaceused_human" : "3.9 MB",
+        "active releases" : [
+           {
+              "stage" : "prod",
+              "release" : "1.88-xx01"
+           },
+           {
+              "stage" : "prod",
+              "release" : "1.94-build001"
+           }
+        ],
+        "releaselinks" : [
+           {
+              "link" : "1.88",
+              "target" : "1.88-xx01"
+           },
+           {
+              "link" : "1.94",
+              "target" : "1.94-build001"
+           }
+        ]
+     }
+  }

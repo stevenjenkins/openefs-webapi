@@ -1,0 +1,85 @@
+=head1 NAME
+
+search
+
+=head1 DESCRIPTION
+
+Provides a name search in EFS for metaprojects and projects.
+
+=head2 Parameters
+
+=over 4
+
+=item q
+
+Required. Search terms; space separated: url encodes to + ; applied
+with "AND" logic. Example: C<q=perl+ldap>.
+
+=back
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/search?q=emea+cc
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : {
+        "metaprojs" : [
+           {
+              "spaceused" : "1098541186",
+              "name" : "cc-emea",
+              "filecount" : "144189",
+              "dircount" : "20979",
+              "username" : "ettdev",
+              "spaceused_human" : "1.1 GB",
+              "projects_count" : "2",
+              "groupname" : "ett",
+              "linkcount" : "0"
+           }
+        ],
+        "projects" : [
+           {
+              "metaproj" : "cc-emea",
+              "project" : "CC_EMEA_Client_Profile_Scripts",
+              "spaceused" : "3339492",
+              "linkcount" : "0",
+              "filecount" : "529",
+              "cell" : "d.lwdc.lon.emea.example.com",
+              "dircount" : "410",
+              "spaceused_human" : "3.3 MB"
+           },
+           {
+              "metaproj" : "cc-emea",
+              "project" : "CC_EMEA_Client_Profiles",
+              "spaceused" : "1095201694",
+              "linkcount" : "0",
+              "filecount" : "143660",
+              "cell" : "d.lwdc.lon.emea.example.com",
+              "dircount" : "20569",
+              "spaceused_human" : "1.1 GB"
+           },
+           {
+              "metaproj" : "ets",
+              "project" : "cc-emea",
+              "spaceused" : "14197040",
+              "linkcount" : "0",
+              "filecount" : "1347",
+              "cell" : "d.lwdc.lon.emea.example.com",
+              "dircount" : "290",
+              "spaceused_human" : "14 MB"
+           },
+           {
+              "metaproj" : "ets",
+              "project" : "cc-emea-deploy",
+              "spaceused" : "15933424",
+              "linkcount" : "0",
+              "filecount" : "1298",
+              "cell" : "d.lwdc.lon.emea.example.com",
+              "dircount" : "276",
+              "spaceused_human" : "15 MB"
+           }
+        ]
+     }
+  }

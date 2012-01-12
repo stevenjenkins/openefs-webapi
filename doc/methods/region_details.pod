@@ -1,0 +1,67 @@
+=head1 NAME
+
+region_details
+
+=head1 DESCRIPTION
+
+Description of a Region
+
+=head2 Parameters
+
+=over 4
+
+=item region
+
+Required. Region name. Example: C<name=amrs>.
+
+=back
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/region_details?region=amrs
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : {
+        "name" : "amrs",
+        "attributes" : {
+           "description" : "Americas",
+           "dev_cell" : "d.lvt.nyc.amrs.example.com"
+        },
+        "campuses" : [
+           {
+              "name" : "tex",
+              "attributes" : {
+                 "description" : "Richardson, TX"
+              }
+           },
+           {
+              "name" : "mkc",
+              "attributes" : {
+                 "description" : "Kansas City, MO"
+              }
+           },
+           {
+              "name" : "chd",
+              "attributes" : {
+                 "description" : "Chandler, AZ"
+              }
+           },
+           {
+              "name" : "ric",
+              "attributes" : {
+                 "description" : "Richmond, VA"
+              }
+           },
+           {
+              "name" : "nyc",
+              "attributes" : {
+                 "description" : "New York City, USA",
+                 "dev_cell" : "d.lvt.nyc.amrs.example.com"
+              }
+           }
+        ]
+     }
+  }

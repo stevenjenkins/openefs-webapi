@@ -1,0 +1,173 @@
+=head1 NAME
+
+projects
+
+=head1 DESCRIPTION
+
+Returns a list of projects and some brief information.
+
+=head2 Parameters
+
+=over 4
+
+=item metaproj
+
+Required. Metaproject that projects belong to. Example:
+C<metaproj=perl5>.
+
+=item rows
+
+Optional. Number of items per page (defaults to 15). Special value
+"all" means to return all results, instead of just one page. Example:
+C<rows=10>.
+
+=item page
+
+Optional. Desired page number (defaults to 1). Example: C<page=3>.
+
+=item with_file_stats
+
+Optional. When set to 1, adds in spaceused, filecount, dircount and
+linkcount to each project (defaults to 0). Example:
+C<with_file_stats=1>.
+
+=back
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/projects?metaproj=perl5;rows=all
+  http://efsapi.example.com/api/v1/projects?metaproj=perl5;page=3;rows=5
+  http://efsapi.example.com/api/v1/projects?metaproj=perl5;page=3;rows=5;with_file_stats=1
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : {
+        "metaproj" : "perl5",
+        "rows" : "5",
+        "total_count" : "991",
+        "page" : "3",
+        "last_page" : 199,
+        "projects" : [
+           {
+              "metaproj" : "perl5",
+              "project" : "Any-Moose",
+              "cell" : "d.lvt.nyc.amrs.example.com"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "AnyData",
+              "cell" : "d.lvt.nyc.amrs.example.com"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Apache-DB",
+              "cell" : "d.lvt.nyc.amrs.example.com"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Apache-DBI",
+              "cell" : "d.lvt.nyc.amrs.example.com"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Apache-Htpasswd",
+              "cell" : "d.lvt.nyc.amrs.example.com"
+           }
+        ]
+     }
+  }
+
+  {
+     "status" : "Success",
+     "result" : {
+        "metaproj" : "perl5",
+        "rows" : "5",
+        "total_count" : "991",
+        "page" : "3",
+        "last_page" : 199,
+        "projects" : [
+           {
+              "metaproj" : "perl5",
+              "project" : "Any-Moose",
+              "spaceused" : "898152",
+              "linkcount" : "4",
+              "filecount" : "64",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "160",
+              "spaceused_human" : "898 KB"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "AnyData",
+              "spaceused" : "4816524",
+              "linkcount" : "7",
+              "filecount" : "565",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "183",
+              "spaceused_human" : "4.8 MB"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Apache-DB",
+              "spaceused" : "6388142",
+              "linkcount" : "4",
+              "filecount" : "156",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "124",
+              "spaceused_human" : "6.4 MB"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Any-Moose",
+              "spaceused" : "898152",
+              "linkcount" : "4",
+              "filecount" : "64",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "160",
+              "spaceused_human" : "898 KB"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "AnyData",
+              "spaceused" : "4816524",
+              "linkcount" : "7",
+              "filecount" : "565",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "183",
+              "spaceused_human" : "4.8 MB"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Apache-DB",
+              "spaceused" : "6388142",
+              "linkcount" : "4",
+              "filecount" : "156",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "124",
+              "spaceused_human" : "6.4 MB"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Apache-DBI",
+              "spaceused" : "5132182",
+              "linkcount" : "13",
+              "filecount" : "208",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "317",
+              "spaceused_human" : "5.1 MB"
+           },
+           {
+              "metaproj" : "perl5",
+              "project" : "Apache-Htpasswd",
+              "spaceused" : "1728765",
+              "linkcount" : "7",
+              "filecount" : "94",
+              "cell" : "d.lvt.nyc.amrs.example.com",
+              "dircount" : "223",
+              "spaceused_human" : "1.7 MB"
+           }
+        ]
+     }
+  }

@@ -1,0 +1,42 @@
+=head1 NAME
+
+regions
+
+=head1 DESCRIPTION
+
+Return a list of regions.
+
+=head2 Parameters
+
+None.
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/regions
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : [
+        {
+           "name" : "aja",
+           "attributes" : {
+              "description" : "Asia, Japan, Australia"
+           }
+        },
+        {
+           "name" : "amrs",
+           "attributes" : {
+              "description" : "Americas",
+              "dev_cell" : "d.lvt.nyc.amrs.example.com"
+           }
+        },
+        {
+           "name" : "emea",
+           "attributes" : {
+              "description" : "Europe, Middle East, Africa"
+           }
+        }
+     ]
+  }

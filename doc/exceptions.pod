@@ -1,0 +1,44 @@
+=head1 NAME
+
+API Exceptions
+
+=head1 DETAILS
+
+This is the list of defined exceptions that may be thrown by the EFS Web API.
+
+=over 4
+
+=item Invalid Procedure
+
+Procedure not found (invalid procedure name).
+
+=item Missing Parameter
+
+The name of the missing required input parameter will appear in the message.
+
+=item Invalid Input
+
+One or more input parameters contain invalid input.
+
+=item Invalid Region
+
+The region name is invalid or not found.
+
+=item Invalid Campus
+
+The campus name is invalid or not found (within the specified region).
+
+=item Invalid Metaproj
+
+The metaproj name is invalid or not found.
+
+=item Invalid Project
+
+The project name is invalid or not found (within the specified metaproj).
+
+=item Error
+
+An unexpected system error has occured.
+
+=back
+

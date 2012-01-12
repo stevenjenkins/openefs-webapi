@@ -1,0 +1,27 @@
+=head1 NAME
+
+EFS WebAPI
+
+=head1 SUMMARY
+
+The EFS Web API provides an application programmatic interface to EFS
+functionality. The Web API is used for the EFS Web User Interface, and
+will be used to replace the current EFS Command Line Interface.
+
+Planned uses:
+
+=over 4
+
+=item * Automated reports
+
+=item * Integrating EFS information with other tools
+
+=item * Easy creation of tools (whether the tools are used from the
+commandline, the web or some other user interface)
+
+=back
+
+The EFS Web API v1 is currently in development, and the methods detailed
+in the links below are available at:
+F<protocol.pod>, F<exceptions.pod>, F<methods.pod>.
+

@@ -1,0 +1,56 @@
+=head1 NAME
+
+metaproj_details
+
+=head1 DESCRIPTION
+
+Returns detailed information for a specified metaproject.
+
+
+=head2 Parameters
+
+=over 4
+
+=item metaproj
+
+Required. Metaproject that contains the requested project. Example: C<metaproj=perl5> 
+
+=back
+
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/metaproj_details?metaproj=perl5
+
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : {
+        "name" : "perl5",
+        "username" : "pladmin",
+        "groupname" : "pladmin",
+        "attributes" : {
+           "execdocs" : "common",
+           "description" : "Perl5 Programming Language and Development Environment"
+        },
+        "projects_count" : "991",
+        "spaceused" : "10595549910",
+        "spaceused_human" : "10 GB",
+        "filecount" : "679003",
+        "dircount" : "278317",
+        "linkcount" : "15185",
+        "userrights" : [
+           {
+              "role" : "admin",
+              "username" : "ddesrosi"
+           },
+           {
+              "role" : "prod",
+              "username" : "ggay"
+           }
+        ]
+     }
+  }
+

@@ -1,0 +1,91 @@
+=head1 NAME
+
+EFS Web API Runbook
+
+=head1 DESCRIPTION
+
+The EFS Web API is a Perl/Catalyst application. It is run as a fast-cgi
+process, communicating with a lighttpd web server front end via Unix
+Domain Sockets.
+
+Perl/Catalyst is an MVC web application architecture.
+
+The model used for the Web API is based on DBIx::Class, from EFS 3. The
+view is strictly JSON, as documented at F<efs_web_api.pod>.
+
+=head1 MPRs
+
+=over 4
+
+=item * lighttpd - efs/lighttpd/1.4.28
+
+=item * lighty conf - efs/web-config/5
+
+=item * Web API - efs/api/v1
+
+=item * EFS core - efs/core/3.0
+
+=back
+
+=head1 Lighty Configuration
+
+Everything is easily read from efs/web-config/5, which contains a small
+lighttpd.conf file. Here are some highlights:
+
+=over 4
+
+=item * listens to port 80 (default http)
+
+=item * URLs that start with {{/api/v1/}} are rewritten to remove the
+{{v1/}}. Should the need arise to serve more than one version of the API
+from the same server, this will need to be changed.
+
+=item * URLs starting with {{/api/}} are forwarded to the web api fcgi
+processes.
+
+=item * URLs starting with anything else (i.e. neither {{/static/}} nor
+{{/api/}}) are forwarded to the web app fcgi process.
+
+=item * access log {{/var/tmp/efs-web-access.log}}
+
+=item * error log {{/var/tmp/efs-web-error.log}}
+
+=back
+
+=head1 Web API Configuration
+
+Configuration is currently largely applied on the command line. Relying
+on existing EFS modules, the database connection is hardcoded (in
+{{EFS::DBI}}).
+
+The socket is {{/tmp/efs_api_v1.fcgi}}
+
+Log messages are forwarded to the lighty webserver's logs.
+
+=head1 Starting Everything
+
+All processes are currently run as root. The fcgi processes should work
+just fine under a less privileged user. Perl is
+C</efs/dist/perl5/core/5.10.1/exec/bin/perl>.
+
+=over 4
+
+=item * Web API: {{script/efs_webapi_fastcgi.pl -l /tmp/efs_api_v1.fcgi -n 3}}
+
+=item * lighty: {{/efs/dist/efs/lighttpd/1.4.28/exec/sbin/lighttpd -f /efs/dist/efs/web-config/5/common/etc/common/efs-web.conf}}
+
+=back
+
+=head1 Git repositories
+
+=over 4
+
+=item * Web API: efs-webapi
+
+=item * Web App: efs-webapp
+
+=item * Lighty Config: efs-webconfig
+
+=item * EFS Core: efs-core
+
+=back

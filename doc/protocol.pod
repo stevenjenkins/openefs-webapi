@@ -1,0 +1,68 @@
+=head1 NAME
+
+API Protocol
+
+=head1 DETAILS
+
+API communication is performed via HTTP.
+
+API procedure calls are coded as HTTP GET requests to specific URI,
+with the input parameters coded as URI query parameters.
+
+API procedure results are returned as a JSON document, that composes an
+envelope wrapper with some meta-data, and the payload data-structure.
+
+HTTP POST requests will likely be required for some procedure calls in
+the future versions of the API. SSL will likely be required for access
+to authorized methods.
+
+=head2 GET URI Syntax
+
+  http://efsapi.example.com/v1/method_name?param_name=param_value;param_name2=param_value2
+
+=over 4
+
+=item * All API communications are encrypted by SSL
+
+=item * Input is provided as a list of semicolon joined name=value query parameters.
+
+=item * Output is a JSON encoded object with an envelope providing result codes and an object payload.
+
+=item * The character set for all input and output is UTF8.
+
+=back
+
+=head3 Input Parameters
+
+Input to EFS Web API methods are supplied as name=value pairs. The
+values are URI encoded, and the name=value pairs are separated by
+semicolons. Parameter values are typically case insensitive,
+however parameter names are case sensitive.
+
+=head2 JSON Output
+
+API procedure call results are output as a JSON document. The document
+comprises a thin envelope with two keys, result_code (designating
+success or failure of the call), and result (the data payload or error
+code and message).
+
+=head3 Successful Result
+
+  {
+    "result_code" : "Success",
+    "result" : {
+        "here_are_the_real_keys" : "some awesome data"
+    }
+  }
+
+=head3 Error Result
+
+
+  {
+    "result_code" : "Error",
+    "result" : {
+        "error_code" : "Invalid Input",
+        "error_message" : "Mandatory parameters 'school_name', 'state' missing"
+    }
+  }
+

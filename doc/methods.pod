@@ -1,0 +1,28 @@
+=head1 NAME
+
+API Methods
+
+=head1 DETAILS
+
+The EFS Web API provides the methods listed below.
+
+=over 4
+
+=item * F<methods/campus_details.pod>
+
+=item * F<methods/metaproj_details.pod>
+
+=item * F<methods/metaprojs.pod>
+
+=item * F<methods/project_details.pod>
+
+=item * F<methods/projects.pod>
+
+=item * F<methods/region_details.pod>
+
+=item * F<methods/regions.pod>
+
+=item * F<methods/search.pod>
+
+=back
+

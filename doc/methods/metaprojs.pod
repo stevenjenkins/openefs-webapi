@@ -1,0 +1,143 @@
+=head1 NAME
+
+metaprojs
+
+=head1 DESCRIPTION
+
+Returns a list of metaprojetcs and some brief information.
+
+=head2 Parameters
+
+=over 4
+
+=item rows
+
+Optional. Number of items per page (defaults to 15). Special value,
+"all" means return all rows, instead of just one page. Example:
+C<rows=10>.
+
+=item page
+
+Optional. Desired page number (defaults to 1). Example: C<page=3>.
+
+=item with_file_stats
+
+Optional. When set to 1, adds in spaceused, filecount, dircount and
+linkcount to each metaproj (defaults to 0). Example:
+C<with_file_stats=1>.
+
+=back
+
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/metaprojs?rows=all
+  http://efsapi.example.com/api/v1/metaprojs?page=4;rows=5
+  http://efsapi.example.com/api/v1/metaprojs?page=4;rows=5;with_file_stats=1
+
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : {
+        "rows" : "5",
+        "total_count" : "176",
+        "page" : "4",
+        "last_page" : 36,
+        "metaprojects" : [
+           {
+              "name" : "breakglass-cfg",
+              "groupname" : "tpegrp",
+              "username" : "tpedev"
+           },
+           {
+              "name" : "bti",
+              "groupname" : "btidev",
+              "username" : "btidev"
+           },
+           {
+              "name" : "bticpp",
+              "groupname" : "btidev",
+              "username" : "btidev"
+           },
+           {
+              "name" : "btijava",
+              "groupname" : "btidev",
+              "username" : "btidev"
+           },
+           {
+              "name" : "cc-emea",
+              "groupname" : "ett",
+              "username" : "ettdev"
+           }
+        ]
+     }
+  }
+
+  {
+     "status" : "Success",
+     "result" : {
+        "rows" : "5",
+        "total_count" : "176",
+        "page" : "4",
+        "last_page" : 36,
+        "metaprojects" : [
+           {
+              "spaceused" : "146272",
+              "name" : "breakglass-cfg",
+              "filecount" : "156",
+              "dircount" : "27",
+              "username" : "tpedev",
+              "spaceused_human" : "146 KB",
+              "projects_count" : "3",
+              "groupname" : "tpegrp",
+              "linkcount" : "0"
+           },
+           {
+              "spaceused" : "7525074235",
+              "name" : "bti",
+              "filecount" : "75715",
+              "dircount" : "7106",
+              "username" : "btidev",
+              "spaceused_human" : "7.5 GB",
+              "projects_count" : "81",
+              "groupname" : "btidev",
+              "linkcount" : "701"
+           },
+           {
+              "spaceused" : "17529187586",
+              "name" : "bticpp",
+              "filecount" : "537398",
+              "dircount" : "12296",
+              "username" : "btidev",
+              "spaceused_human" : "17 GB",
+              "projects_count" : "39",
+              "groupname" : "btidev",
+              "linkcount" : "6323"
+           },
+           {
+              "spaceused" : "1414403988",
+              "name" : "btijava",
+              "filecount" : "64987",
+              "dircount" : "6550",
+              "username" : "btidev",
+              "spaceused_human" : "1.4 GB",
+              "projects_count" : "39",
+              "groupname" : "btidev",
+              "linkcount" : "305"
+           },
+           {
+              "spaceused" : "1098541186",
+              "name" : "cc-emea",
+              "filecount" : "144189",
+              "dircount" : "20979",
+              "username" : "ettdev",
+              "spaceused_human" : "1.1 GB",
+              "projects_count" : "2",
+              "groupname" : "ett",
+              "linkcount" : "0"
+           }
+        ]
+     }
+  }
