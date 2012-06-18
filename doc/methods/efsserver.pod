@@ -1,0 +1,61 @@
+=head1 NAME
+
+efsserver
+
+=head1 DESCRIPTION
+
+Returns a list of efsservers and information about the cell(s) served, type, and FQDN
+
+=head2 Parameters
+
+=over 4
+
+=item cell (not yet implemented)
+
+Filters the output by only returning efs server information for
+the specified cell(s)
+
+=item rows
+
+Optional. Number of items per page (defaults to 15). Special value
+"all" means to return all results, instead of just one page. Example:
+C<rows=10>.
+
+=item page
+
+Optional. Desired page number (defaults to 1). Example: C<page=3>.
+
+=back
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v2/efsserver
+  http://efsapi.example.com/api/v2/efsserver?cell=d.cam
+  http://efsapi.example.com/api/v2/efsserver?rows=all
+  http://efsapi.example.com/api/v2/efsserver?rows=1
+
+=head2 Sample Result
+
+    { "status" : "Success",
+      "result" : [
+        {"cell" : "d.cam.loc.reg.example.com",
+         "server" : "server1d",
+         "hosttype" : "dev",
+         "fqdn" : "server1d.example.com"
+        },
+        {"cell" : "d.cam.loc.reg.example.com",
+         "server" : "server2d",
+         "hosttype" : "dev",
+         "fqdn" : "server2d.example.com"
+        },
+        {"cell" : "p.cam.loc.reg.example.com",
+         "server" : "server1p",
+         "hosttype" : "prod",
+         "fqdn" : "server1p.example.com"
+        },
+        {"cell" : "p.cam.loc.reg.example.com",
+         "server" : "server2p",
+         "hosttype" : "prod",
+         "fqdn" : "server2p.example.com"
+        } ]
+    }
