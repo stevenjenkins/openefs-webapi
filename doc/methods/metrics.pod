@@ -1,0 +1,24 @@
+=head1 NAME
+
+metrics
+
+=head1 DESCRIPTION
+
+Return a list of metrics relevant to EFS
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v2/metrics
+
+=head2 Sample Results
+
+  {
+     "status" : "Success",
+     "efsservers": 20,
+     "metaprojects": 100,
+     "projects": 1000,
+     "releases": 10000,
+     "releaselinks": 1500,
+     "users": 23
+  }
+
