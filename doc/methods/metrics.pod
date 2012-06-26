@@ -14,10 +14,12 @@ Return a list of metrics relevant to EFS
 
   {
      "status" : "Success",
-     "efsservers": 20,
-     "metaprojects": 100,
-     "projects": 1000,
-     "releases": 10000,
-     "releaselinks": 1500
+     "result" : [
+        "efsservers": 20,
+        "metaprojects": 100,
+        "projects": 1000,
+        "releases": 10000,
+        "releaselinks": 1500
+    ]
   }
 
