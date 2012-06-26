@@ -31,7 +31,6 @@ sub checkMetaExist {
 
 }
 
-
 sub regions : API {
     my ( $self, $params ) = @_;
 
@@ -250,6 +249,33 @@ sub metaproj_details : API {
         with_file_stats      => 1,
         with_attrs_and_users => 1,
     );
+}
+
+
+sub metrics : API {
+    my ( $self, $params ) = @_;
+
+    # no params to check
+
+    my $efsservers_rs = EFS3::DBI->get_schema->resultset( 'Efsserver' )->count();
+    my $metaprojects_rs = EFS3::DBI->get_schema->resultset( 'Metaproj' )->count();
+    my $projects_rs = EFS3::DBI->get_schema->resultset( 'Project' )->count();
+    my $releases_rs = EFS3::DBI->get_schema->resultset( 'Release' )->count();
+    my $releaselinks_rs = EFS3::DBI->get_schema->resultset( 'Releaselink' )->count();
+    my $users_rs = EFS3::DBI->get_schema->resultset( 'History' )->search(
+        {}, { select => [{ count => { distinct => 'authuser' } }], as => ['count']});
+    
+
+    my $metric_struct = {
+        efsservers => $efsservers_rs,
+        metaprojects => $metaprojects_rs,
+        projects => $projects_rs,
+        releases => $releases_rs,
+        releaselinks => $releaselinks_rs,
+        users => $users_rs
+    }
+
+    return $metric_struct;
 }
 
 

@@ -18,7 +18,6 @@ Return a list of metrics relevant to EFS
      "metaprojects": 100,
      "projects": 1000,
      "releases": 10000,
-     "releaselinks": 1500,
-     "users": 23
+     "releaselinks": 1500
   }
 
