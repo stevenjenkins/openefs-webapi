@@ -175,6 +175,33 @@ sub campus_details : API {
     return $campus_struct;
 }
 
+sub locations : API {
+    my ( $self, $params ) = @_;
+
+    # no params to check
+
+    my $location_rs = EFS3::DBI->get_schema->resultset( 'Location' )->search(
+        {}, { order_by => { -asc => 'name' } },
+    );
+
+    my $locations = [];
+    while ( my $location = $location_rs->next() ) {
+        my $reg_struct = {
+            name => $location->name(),
+            attributes => {},
+        };
+
+
+        my $attr_rs = $location->attrs();
+        while ( my $attr = $attr_rs->next() ) {
+            $reg_struct->{ attributes }{ $attr->name() }
+                = $attr->value();
+        }
+        push @$locations, $reg_struct;
+    }
+
+    return $locations;
+}
 
 sub metaprojs : API {
     my $self = shift;
