@@ -188,6 +188,8 @@ sub locations : API {
     while ( my $location = $location_rs->next() ) {
         my $reg_struct = {
             name => $location->name(),
+            region => $location->region(),
+            campus => $location->campus(),
             attributes => {},
         };
 
