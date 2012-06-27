@@ -1,0 +1,53 @@
+=head1 NAME
+
+locations
+
+=head1 DESCRIPTION
+
+Return a list of locations.
+
+=head2 Parameters
+
+None.
+
+=head2 Sample Calls
+
+  http://efsapi.example.com/api/v1/locations
+
+=head2 Sample Result
+
+  {
+     "status" : "Success",
+     "result" : [
+        {
+           "name" : "alc",
+           "region" : "amrs",
+           "campus" : "sfc",
+           "attributes" : {
+              "description" : "Alcatraz Island, San Francisco, CA, US",
+              "lat" : "37.82666360",
+              "long" : "-122.42301220"
+           }
+        },
+        {
+           "name" : "tol",
+           "region" : "emea",
+           "campus" : "lon",
+           "attributes" : {
+              "description" : "Tower of London, London, UK",
+              "lat" : "51.50894650",
+              "long" : "-0.07642689999999999"
+           }
+        },
+        {
+           "name" : "soh",
+           "region" : "aja",
+           "campus" : "syd"
+           "attributes" : {
+              "description" : "Sydney Opera House, Sydney, Australia",
+              "lat" : "-33.85610870",
+              "long" : "151.21595450"
+           }
+        }
+     ]
+  }
